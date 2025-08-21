@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Diseño Web y Mejores Prácticas</title>
+    <style>
+        /* Variables y reset */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --text: #34495e;
+            --text-light: #7f8c8d;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* Tipografía */
+        h1, h2, h3, h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        h1:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: var(--secondary);
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+        }
+        
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        header h1 {
+            color: white;
+            font-size: 2.8rem;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        header h1:after {
+            background: white;
+        }
+        
+        /* Tarjetas de elementos de diseño */
+        .design-elements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .design-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .design-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .design-card h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .design-card h3 span {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        /* Secciones de mejores prácticas */
+        .best-practices {
+            margin: 3rem 0;
+        }
+        
+        .practice-section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .practice-section h3 {
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .practice-section h3 span {
+            background: var(--secondary);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+        
+        /* Listas */
+        ul {
+            list-style-type: none;
+            margin: 1rem 0;
+        }
+        
+        ul li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.8rem;
+        }
+        
+        ul li:before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Elementos de acento */
+        .highlight {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .design-elements {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Diseño Web & Mejores Prácticas</h1>
+            <p>Una guía visual basada en principios fundamentales de desarrollo de software</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="intro">
+            <h2>¿Qué es el Diseño de Software?</h2>
+            <p>El diseño de software es el proceso de construcción para la planificación de una <strong>solución informática</strong>. Este proceso ayuda a los programadores a manejar la complejidad de la mayoría de los programas informáticos y a disminuir el riesgo de errores en su puesta en marcha.</p>
+            
+            <div class="highlight">
+                <p>La calidad es la palabra clave que define la importancia del diseño, ya que es en esta etapa donde se establece la calidad del proyecto y se materializan con precisión los requerimientos del cliente.</p>
+            </div>
+        </section>
+
+        <section class="design-components">
+            <h2>Los 4 Elementos del Diseño de Software</h2>
+            <div class="design-elements">
+                <div class="design-card animate">
+                    <h3><span>📊</span> Diseño de Datos</h3>
+                    <p>Define la relación entre los elementos estructurales del programa. Establece cómo se organizarán, almacenarán y relacionarán los datos dentro del sistema.</p>
+                </div>
+                
+                <div class="design-card animate delay-1">
+                    <h3><span>🏗️</span> Diseño Arquitectónico</h3>
+                    <p>Describe cómo se comunica el software internamente, con sistemas externos, y con operadores y usuarios. Define la estructura general del sistema.</p>
+                </div>
+                
+                <div class="design-card animate delay-2">
+                    <h3><span>🎨</span> Diseño de Interfaz</h3>
+                    <p>Describe la interacción del sistema con el usuario. Incluye todos los aspectos de la experiencia de usuario y la presentación visual.</p>
+                </div>
+                
+                <div class="design-card animate delay-3">
+                    <h3><span>⚙️</span> Diseño de Componentes</h3>
+                    <p>Es una descripción procedimental de cada parte especificada en el diseño arquitectónico. Detalla cómo funcionarán internamente los módulos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="best-practices">
+            <h2>Mejores Prácticas en Desarrollo de Software</h2>
+            
+            <div class="practice-section">
+                <h3><span>1</span> Programación Orientada a Objetos (POO)</h3>
+                <p>Un paradigma de programación que ofrece un modelo para resolver problemas, centrado en cómo encontrar soluciones. Es fundamental aprender y trabajar con POO para escribir código de calidad.</p>
+            </div>
+            
+            <div class="practice-section">
+                <h3><span>2</span> Principios SOLID</h3>
+                <p>Una guía de buenas prácticas para construir código más legible, mantenible y escalable, buscando reducir la complejidad:</p>
+                <ul>
+                    <li><strong>SRP (Single Responsibility)</strong>: Cada clase debe tener una única responsabilidad.</li>
+                    <li><strong>OCP (Open-Closed)</strong>: Las clases deben estar abiertas a la extensión pero cerradas a la modificación.</li>
+                    <li><strong>LSP (Liskov Substitution)</strong>: Las subclases deben poder sustituir a sus superclases.</li>
+                    <li><strong>ISP (Interface Segregation)</strong>: No forzar a las clases a implementar lo que no necesitan.</li>
+                    <li><strong>DIP (Dependency Inversion)</strong>: Los módulos deben depender de abstracciones, no de detalles concretos.</li>
+                </ul>
+            </div>
+            
+            <div class="practice-section">
+                <h3><span>3</span> Patrones de Diseño</h3>
+                <p>Ayudan a resolver problemas generales que surgen al seguir las reglas de los paradigmas de programación. Facilitan el cumplimiento de los "verdaderos paradigmas de programación" de la mejor manera posible.</p>
+            </div>
+            
+            <div class="practice-section">
+                <h3><span>4</span> Refactorización</h3>
+                <p>Es un cambio en la estructura interna del software para mejorar la comprensión y facilidad de modificación sin alterar su comportamiento observable. Es un proceso continuo de pequeños cambios incrementales.</p>
+            </div>
+            
+            <div class="practice-section">
+                <h3><span>5</span> Desarrollo Seguro (Security by Design)</h3>
+                <p>Implica integrar medidas de ciberseguridad desde las etapas iniciales del desarrollo. Esto incluye identificar requisitos de seguridad, establecer políticas y estándares, y diseñar la aplicación con una perspectiva de seguridad.</p>
+            </div>
+            
+            <div class="practice-section">
+                <h3><span>6</span> Arquitecturas Modernas</h3>
+                <p>Enfoques contemporáneos para construir software escalable y mantenible:</p>
+                <ul>
+                    <li><strong>Arquitectura de Microservicios</strong>: Divide una aplicación en servicios independientes.</li>
+                    <li><strong>Clean Architecture</strong>: Crea sistemas escalables con separación clara de responsabilidades.</li>
+                    <li><strong>Domain-Driven Design (DDD)</strong>: Sitúa el dominio del negocio como el foco del proyecto.</li>
+                    <li><strong>API RESTful</strong>: Diseño de APIs organizadas en torno a recursos con métodos HTTP consistentes.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <div class="highlight">
+            <p>Un buen diseño debe implementar todos los requisitos explícitos, proporcionar una idea completa del software, presentar una organización jerárquica, ser modular, contener abstracciones y producir módulos con funcionamiento independiente.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Infografía basada en principios de diseño de software - Desarrollado con mejores prácticas frontend</p>
+        </div>
+    </footer>
+
+    <script>
+        // Pequeño script para animar elementos al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
